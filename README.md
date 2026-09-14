@@ -105,6 +105,7 @@ The system follows a multi-stage real-time AI pipeline:
 ```text
 ms-platenet/
 ├── backend/                  # FastAPI backend server
+├── database/                 # PostgreSQL schema & seed data (schema.sql)
 │   ├── routers/              # API endpoints (inference, stream, alerts, etc.)
 │   ├── database.py           # PostgreSQL connection configuration
 │   ├── models_db.py          # Database schema models
