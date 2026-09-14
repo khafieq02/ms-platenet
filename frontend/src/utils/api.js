@@ -1,19 +1,18 @@
 /**
  * MS-PlateNet - API Client
- * Centralised axios instance for all backend calls.
+ * Uses relative URLs — works for both:
+ *   - Local dev (Vite proxy to localhost:8000)
+ *   - Production via ngrok (frontend served by FastAPI on port 8000)
  */
 
 import axios from 'axios'
 
 const api = axios.create({
   baseURL: '/api',
-  timeout: 60000, // 60s for video inference
+  timeout: 60000,
 })
 
-// ─── Models API ──────────────────────────────────────────────────────────────
-
 export const modelsApi = {
-  /** Upload a .pt model file */
   upload: (file, onProgress) => {
     const form = new FormData()
     form.append('file', file)
@@ -22,18 +21,11 @@ export const modelsApi = {
       onUploadProgress: onProgress,
     })
   },
-
-  /** List all uploaded models */
-  list: () => api.get('/models'),
-
-  /** Delete a model by filename */
+  list:   ()         => api.get('/models'),
   delete: (filename) => api.delete(`/models/${encodeURIComponent(filename)}`),
 }
 
-// ─── Inference API ───────────────────────────────────────────────────────────
-
 export const inferenceApi = {
-  /** Run inference on an image file */
   image: (file, modelFilename) => {
     const form = new FormData()
     form.append('file', file)
@@ -42,8 +34,6 @@ export const inferenceApi = {
       headers: { 'Content-Type': 'multipart/form-data' },
     })
   },
-
-  /** Run inference on a video file */
   video: (file, modelFilename) => {
     const form = new FormData()
     form.append('file', file)
@@ -52,8 +42,6 @@ export const inferenceApi = {
       headers: { 'Content-Type': 'multipart/form-data' },
     })
   },
-
-  /** Run inference on a webcam frame (Blob) */
   frame: (blob, modelFilename) => {
     const form = new FormData()
     form.append('file', blob, 'frame.jpg')

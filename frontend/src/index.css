@@ -1,6 +1,8 @@
 /* ── MS-PlateNet Global Styles ─────────────────────────────────────────────── */
 
 :root {
+  /* Responsive base font size — scales properly on 2K/4K monitors */
+  font-size: clamp(13px, 0.9vw, 16px);
   /* Brand */
   --green: #00A19C;
   --green-light: #e6f7f7;
@@ -29,7 +31,7 @@
 
   /* Layout */
   --sidebar-width: 220px;
-  --topbar-height: 60px;
+  --topbar-height: 68px;
   --radius: 8px;
   --radius-lg: 12px;
   --shadow-sm: 0 1px 3px rgba(0,0,0,0.07), 0 1px 2px rgba(0,0,0,0.05);
@@ -155,4 +157,40 @@ input, select, textarea {
   height: 1px;
   background: var(--border);
   margin: 16px 0;
+}
+
+/* ── Alert pulse animation ── */
+@keyframes pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(229, 62, 62, 0.4); }
+  70%  { box-shadow: 0 0 0 10px rgba(229, 62, 62, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(229, 62, 62, 0); }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ── Responsive utilities ─────────────────────────────────────────────────── */
+.grid-2col {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 16px;
+}
+
+.grid-2col-equal {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+@media (max-width: 768px) {
+  .grid-2col {
+    grid-template-columns: 1fr !important;
+  }
+  .grid-2col-equal {
+    grid-template-columns: 1fr !important;
+  }
+  .hide-mobile {
+    display: none !important;
+  }
 }

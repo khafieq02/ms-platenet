@@ -2,11 +2,19 @@ fastapi==0.111.0
 uvicorn[standard]==0.29.0
 python-multipart==0.0.9
 aiofiles==23.2.1
+httpx>=0.27.0
+python-dotenv>=1.0.0
 
-# ── Real inference dependencies ──
+# ── AI inference ──
 ultralytics>=8.0.0
-rapidocr-onnxruntime>=1.3.0
 opencv-python>=4.9.0
 torch>=2.0.0
 torchvision>=0.15.0
 numpy>=1.24.0
+
+# ── OCR — fast-plate-ocr with GPU support ──
+# Uninstall rapidocr first: pip uninstall rapidocr-onnxruntime -y
+fast-plate-ocr[onnx-gpu]
+
+sqlalchemy
+asyncpg

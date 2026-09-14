@@ -1,1 +1,66 @@
-venv/ 
+# Python
+__pycache__/
+*.py[cod]
+*.class
+*.so
+.Python
+env/
+venv/
+.venv/
+backend/venv/
+backend/.venv/
+build/
+dist/
+
+# Node / Frontend
+node_modules/
+frontend/node_modules/
+frontend/dist/
+.npm
+
+# Environment variables & secrets
+.env
+backend/.env
+frontend/.env.local
+frontend/.env.development.local
+frontend/.env.production.local
+
+# Logs
+*.log
+backend/*.log
+backend/install-ai.log
+backend/install-ai.err.log
+
+# Binaries & Executables
+*.exe
+ngrok.exe
+
+# Video recordings and image detection cache
+backend/detection_crops/*
+!backend/detection_crops/.gitkeep
+backend/detection_videos/*
+!backend/detection_videos/.gitkeep
+
+# Large zip archives and duplicate models
+*.zip
+yolo26n.pt
+Model Trained/bestMediumV5.pt
+ms-platenet-v5-yolo26.ipynb
+ms-platenet.ipynb
+
+# Root scripts & temporary artifacts
+*.py
+!backend/**/*.py
+*.txt
+Document/
+*.docx
+*.pdf
+extracted_media/
+output/
+
+# OS / Editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp

@@ -12,6 +12,8 @@ import ModelManager from './pages/ModelManager'
 import InferenceTester from './pages/InferenceTester'
 import LiveCamera from './pages/LiveCamera'
 import Settings from './pages/Settings'
+import PumpSimulation from './pages/PumpSimulation'
+import RecordingArchive from './pages/RecordingArchive'
 
 export default function App() {
   return (
@@ -24,6 +26,8 @@ export default function App() {
             <Route path="inference" element={<InferenceTester />} />
             <Route path="camera" element={<LiveCamera />} />
             <Route path="settings" element={<Settings />} />
+            <Route path="pump" element={<PumpSimulation />} />
+            <Route path="recordings" element={<RecordingArchive />} />
           </Route>
         </Routes>
       </BrowserRouter>

@@ -58,7 +58,7 @@ export default function ModelManager() {
   }
 
   return (
-    <div style={{ maxWidth: 760 }}>
+    <div style={{ maxWidth: 1500, margin: '0 auto', padding: '20px 16px' }}>
       <div style={{ marginBottom: 24 }}>
         <h2 style={{ fontSize: 20, fontWeight: 700, marginBottom: 4 }}>Model Manager</h2>
         <p style={{ color: 'var(--text-secondary)', fontSize: 13 }}>
